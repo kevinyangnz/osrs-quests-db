@@ -24,22 +24,22 @@ This database provides the necessary entities and join tables to keep track of p
 
 
 
-* levels, denoting each level number a player can achieve and the xp required to reach said level
-* skills, denoting the details of each skill the player can level up
+* `levels`, denoting each level number a player can achieve and the xp required to reach said level
+* `skills`, denoting the details of each skill the player can level up
 
 
 
-* quests, conveying the details of each quest
-* quest_xp_gained, tracking the xp gained in certain skills from completeing each quest
-* quest_prerequisites, represents the quests the player must have completed in order to finish each quest
-* skill_prerequisites, represents the skill level prerequisites for each quest
-* other_quest_prerequisites, represents miscellaneous requirements for each quest
+* `quests`, conveying the details of each quest
+* `quest_xp_gained`, tracking the xp gained in certain skills from completeing each quest
+* `quest_prerequisites`, represents the quests the player must have completed in order to finish each quest
+* `skill_prerequisites`, represents the skill level prerequisites for each quest
+* `other_quest_prerequisites`, represents miscellaneous requirements for each quest
 
 
 
-* players, shows basic account details for each player
-* player_skills, denotes the skill levels for each of the 23 skills for each player
-* player_quests_completed, records the quests that each player has completed (can also be used to find uncompleted quests)
+* `players`, shows basic account details for each player
+* `player_skills`, denotes the skill levels for each of the 23 skills for each player
+* `player_quests_completed`, records the quests that each player has completed (can also be used to find uncompleted quests)
 
 
 
@@ -131,7 +131,7 @@ As shown in the diagram:
 
 Indexes were used to speed up the process of searching for common queries. These involved the following:
 
-* `quest_points_search` ON `quests` (`quest_points_gained), to quickly search for the quests that give the most quest points
+* `quest_points_search` ON `quests` (`quest_points_gained`), to quickly search for the quests that give the most quest points
 * `skill_prereq_search` ON `skill_prerequisites` (`quest_id`, `skill_level_required`), to find the specific skill level requirements for each quest
 * `skill_reward_search` ON `quest_xp_gained` (`skill_id`, `xp_gained`), to find the quests that give the most xp in each skill
 * `player_xp_search` ON `player_skills` (`player_id`, `skill_xp`), to find which of the players' skills are the lowest or highest
